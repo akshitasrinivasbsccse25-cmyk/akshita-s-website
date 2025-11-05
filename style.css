@@ -1,0 +1,123 @@
+/* Fonts are loaded via HTML <link> to avoid duplicate imports. */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root{
+  --card-bg: rgba(255,255,255,0.08);
+  --card-strong: rgba(255,255,255,0.12);
+  --accent: #A3A8FF;
+  --white: #ffffff;
+}
+
+html,body { height: 100%; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1e1f2f, #3c3f68);
+  transition: background 800ms ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Card */
+.container {
+  width: 350px;
+  padding: 32px 36px;
+  border-radius: 18px;
+  color: var(--white);
+  text-align: center;
+  background: var(--card-bg);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35), 0 0 18px rgba(163,168,255,0.04);
+}
+
+/* Headings */
+h1 { font-weight: 700; font-size: 1.9rem; margin-bottom: 6px; }
+.subtitle { font-weight: 300; margin-bottom: 18px; color: rgba(255,255,255,0.92); }
+
+/* Mood buttons row */
+.mood-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  gap: 6px;
+}
+
+.mood {
+  font-size: 1.9rem;
+  width: 54px;
+  height: 54px;
+  border-radius: 12px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.06);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+  outline: none;
+}
+
+.mood:hover,
+.mood:focus {
+  transform: translateY(-6px) scale(1.06);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35), 0 0 18px rgba(163,168,255,0.08);
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+}
+
+/* Active mood look (applied via JS) */
+.mood.active {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45), 0 0 30px rgba(163,168,255,0.14);
+  transform: translateY(-8px) scale(1.08);
+}
+
+/* Message box (glass) */
+.message-box {
+  background: rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 16px;
+  min-height: 120px;
+  transition: transform 380ms ease, opacity 380ms ease;
+  opacity: 0;
+  transform: translateY(8px);
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+.message-box.visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: subtlePop 380ms ease;
+}
+
+.mood-title { font-size: 1.2rem; font-weight: 600; margin-bottom: 8px; }
+.mood-message { font-size: 0.98rem; font-weight: 300; color: rgba(255,255,255,0.94); }
+
+/* small control area */
+.controls { margin-top: 14px; display: flex; justify-content: center; gap: 10px; }
+.small-btn {
+  background: transparent;
+  color: rgba(255,255,255,0.9);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 180ms ease, transform 120ms ease;
+}
+.small-btn:hover { background: rgba(255,255,255,0.03); transform: translateY(-4px); }
+
+/* keyframes */
+@keyframes subtlePop {
+  from { transform: translateY(8px) scale(0.995); opacity: 0; }
+  to   { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* responsive */
+@media (max-width: 420px) {
+  .container { width: 92%; padding: 24px; }
+  .mood { width: 48px; height: 48px; font-size: 1.6rem; }
+}
+

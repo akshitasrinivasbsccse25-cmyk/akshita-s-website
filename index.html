@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mood Mirror 🌙</title>
+
+  <!-- Google font (Poppins) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container" role="main" aria-labelledby="app-title">
+    <h1 id="app-title">🌙 Mood Mirror</h1>
+    <p class="subtitle">How are you feeling right now?</p>
+
+    <section class="mood-buttons" role="group" aria-label="Choose your mood">
+      <button class="mood" data-mood="happy" aria-label="Happy">😄</button>
+      <button class="mood" data-mood="sad" aria-label="Sad">😔</button>
+      <button class="mood" data-mood="angry" aria-label="Angry">😠</button>
+      <button class="mood" data-mood="calm" aria-label="Calm">🌸</button>
+      <button class="mood" data-mood="tired" aria-label="Tired">😴</button>
+    </section>
+
+    <section id="message-box" class="message-box" aria-live="polite">
+      <h2 id="mood-title" class="mood-title"></h2>
+      <p id="mood-message" class="mood-message"></p>
+    </section>
+
+    <div class="controls">
+      <button id="reset-btn" class="small-btn" type="button" aria-label="Reset Mood">Reset</button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
