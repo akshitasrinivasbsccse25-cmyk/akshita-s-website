@@ -40,16 +40,13 @@ function showMood(moodKey) {
   const mood = moods[moodKey];
   if (!mood) return;
 
-  // Set content
   moodTitle.textContent = mood.title;
   moodMessage.textContent = mood.message;
 
-  // Apply page background
   document.body.style.background = mood.color;
 
-  // Visual message box
   messageBox.classList.remove('visible');
-  // small timeout so animation restarts
+
   setTimeout(() => {
     messageBox.classList.add('visible');
   }, 80);
@@ -64,14 +61,14 @@ buttons.forEach(btn => {
   });
 });
 
-// Reset to default state
 resetBtn.addEventListener('click', () => {
   clearActive();
   moodTitle.textContent = '';
   moodMessage.textContent = '';
   messageBox.classList.remove('visible');
-  // revert background to original gradient
+
   document.body.style.background = "linear-gradient(135deg, #1e1f2f, #3c3f68)";
 });
+
 
 
