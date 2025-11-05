@@ -1,6 +1,3 @@
-// Mood Mirror - script.js
-// Simple, clear logic with small UX touches
-
 const moods = {
   happy: {
     title: "You're feeling Happy! 😄",
@@ -76,4 +73,5 @@ resetBtn.addEventListener('click', () => {
   // revert background to original gradient
   document.body.style.background = "linear-gradient(135deg, #1e1f2f, #3c3f68)";
 });
+
 
